@@ -12,6 +12,8 @@ struct K {
     static let appName = "ChatGroup"
     static let cellIdentifier = "ReusableCell"
     static let cellNibName = "MessageCell"
+    static let cellChatNibName = "ChatCell"
+    static let cellChatIdentifier = "ChatCellId"
     static let registerSegue = "RegisterToHome"
     static let loginSegue = "LoginToHome"
     static let homeSegue = "HomeToChat"

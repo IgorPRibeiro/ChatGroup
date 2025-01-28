@@ -56,7 +56,6 @@
 				8E5CA6923B65EC6C6DDA517E /* Pods-ChatGroup.debug.xcconfig */,
 				6C88B51C2EE5550D2390B776 /* Pods-ChatGroup.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -229,7 +228,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.igorStudy.ChatGroup;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chatingTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -258,7 +257,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.igorStudy.ChatGroup;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chatingTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
