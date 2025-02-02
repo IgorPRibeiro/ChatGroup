@@ -17,6 +17,7 @@ struct K {
     static let registerSegue = "RegisterToHome"
     static let loginSegue = "LoginToHome"
     static let homeSegue = "HomeToChat"
+    static let keyEmail = "email"
     
     struct BrandColors {
         static let purple = "BrandPurple"

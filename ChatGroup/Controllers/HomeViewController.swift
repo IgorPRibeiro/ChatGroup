@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import Foundation
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    
+   
+
     var rooms: [Room] = [
         Room(name: "chat1", id: "1"),
         Room(name: "chat2", id: "2"),
@@ -19,7 +21,14 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Olá user"
+        let defaults = UserDefaults.standard
+        if let userName = defaults.string(forKey: K.keyEmail) {
+            let _name = userName.split(separator: "@")
+            title = "Olá \(_name[0])"
+        }else {
+            title = "Olá user"
+        }
+        
         navigationItem.hidesBackButton = true
         tableView.dataSource = self
         

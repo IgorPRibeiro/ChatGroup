@@ -8,12 +8,13 @@
 
 import UIKit
 import FirebaseAuth
+import Foundation
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
-    
+
 
     @IBAction func loginPressed(_ sender: UIButton) {
         if let email  = emailTextfield.text,let password = emailTextfield.text{
@@ -22,6 +23,12 @@ class LoginViewController: UIViewController {
                 if let e = error {
                     print(e.localizedDescription)
                 }else {
+                    let defaults = UserDefaults.standard
+                    defaults.set(
+                        email,
+                        forKey: K.keyEmail
+                    )
+                
                     self.performSegue(withIdentifier: K.loginSegue, sender: self)
                 }
             }
