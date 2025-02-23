@@ -31,5 +31,6 @@ struct K {
         static let senderField = "sender"
         static let bodyField = "body"
         static let dateField = "date"
+        static let roomsCollectionName = "rooms"
     }
 }

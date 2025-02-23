@@ -7,17 +7,16 @@
 
 import UIKit
 import Foundation
+import FirebaseAuth
+import FirebaseFirestore
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    let db = Firestore.firestore()
+
    
 
-    var rooms: [Room] = [
-        Room(name: "chat1", id: "1"),
-        Room(name: "chat2", id: "2"),
-        Room(name: "chat3", id: "3"),
-        Room(name: "chat4", id: "4"),
-    ]
+    var rooms: [Room] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +33,36 @@ class HomeViewController: UIViewController {
         
         tableView.register(UINib(nibName: K.cellChatNibName, bundle: nil), forCellReuseIdentifier: K.cellChatIdentifier)
         
-        
+        loadRooms()
+    }
+    
+    func loadRooms () {
+        db.collection(K.FStore.roomsCollectionName).getDocuments { (querySnapshot, error) in
+               if let error = error {
+                   print("Erro ao buscar documentos: \(error.localizedDescription)")
+                   return
+               }
+             
+               if let snapshot = querySnapshot {
+                   self.rooms = []
+                   for document in snapshot.documents {
+                       let documentID = document.documentID
+                       let data = document.data()
+                       print(data)
+                       if let id = data["id"] as? String {
+                           let newRoom = Room(name: documentID, id: String(id))
+                           self.rooms.append(newRoom)
+                           DispatchQueue.main.async{
+                               self.tableView.reloadData()
+                           }
+                           
+                       }else {
+                           print("erro to get id")
+                       }
+                   }
+                   
+               }
+           }
     }
     
 }
